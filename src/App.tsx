@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  Container,
+  Paper,
+  makeStyles,
+  createStyles,
+  Theme,
+} from "@material-ui/core";
 
-function App() {
+import sections from "./sections";
+import Nav from "./components/nav/Nav";
+import CustomThemeProvider from "./components/styles/CustomThemeProvider";
+import SectionWrapper from "./components/SectionWrapper";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    rootPaper: {
+      minHeight: "100vh",
+      minWidth: "320px",
+    },
+  })
+);
+
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CustomThemeProvider>
+        <Paper square className={classes.rootPaper}>
+          <Nav />
+          <Container maxWidth="md" component="main">
+            {sections.map((section, idx) => {
+              return (
+                <SectionWrapper key={section.id} id={section.id}>
+                  {section.component}
+                </SectionWrapper>
+              );
+            })}
+          </Container>
+        </Paper>
+      </CustomThemeProvider>
+    </>
   );
-}
+};
 
 export default App;

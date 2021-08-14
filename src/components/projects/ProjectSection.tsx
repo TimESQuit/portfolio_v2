@@ -1,14 +1,27 @@
 import React from "react";
-import { Grid, makeStyles, createStyles, Theme } from "@material-ui/core";
+import {
+  Grid,
+  makeStyles,
+  createStyles,
+  Theme,
+  Typography,
+} from "@material-ui/core";
 
 import ProjectComponent from "./ProjectComponent";
-
-const mockProjectData = [1, 2, 3];
+import projects from "./projects";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    gridRoot: {
       flexGrow: 1,
+    },
+    title: {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      flexFlow: "row wrap",
+      alignContent: "space-around",
+      paddingBottom: theme.spacing(3),
     },
   })
 );
@@ -17,20 +30,25 @@ const ProjectSection = () => {
   const classes = useStyles();
 
   return (
-    <Grid
-      container
-      justifyContent="center"
-      spacing={3}
-      className={classes.root}
-    >
-      {mockProjectData.map((project) => {
-        return (
-          <Grid key={project} item>
-            <ProjectComponent />
-          </Grid>
-        );
-      })}
-    </Grid>
+    <>
+      <Typography variant="h4" className={classes.title}>
+        Things I've Made
+      </Typography>
+      <Grid
+        container
+        justifyContent="center"
+        spacing={3}
+        className={classes.gridRoot}
+      >
+        {projects.map((project) => {
+          return (
+            <Grid key={project.title} item>
+              <ProjectComponent project={project} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </>
   );
 };
 export default ProjectSection;

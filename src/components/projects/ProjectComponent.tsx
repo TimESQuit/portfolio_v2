@@ -7,11 +7,13 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Typography,
+  Chip,
 } from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import Video from "../Video";
+import { IProject } from "./projects";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,46 +24,58 @@ const useStyles = makeStyles((theme: Theme) =>
         minWidth: 256,
         maxWidth: 432,
       },
-      //   borderColor: theme.palette.secondary.light,
-    },
-
-    bullet: {
-      display: "inline-block",
-      margin: "0 2px",
-      transform: "scale(0.8)",
     },
     title: {
       display: "flex",
       justifyContent: "center",
+      paddingBottom: theme.spacing(1),
     },
-    pos: {
-      marginBottom: 12,
+    chipContainer: {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      "& > *": {
+        margin: theme.spacing(0.25),
+      },
+      marginBottom: theme.spacing(2),
+    },
+    githubIcon: {
+      marginRight: theme.spacing(1),
     },
   })
 );
 
-const ProjectComponent = () => {
+const ProjectComponent = ({ project }: { project: IProject }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography variant="h5" component="h2" className={classes.title}>
-          Baseball Data World
+          {project.title}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
+        <div className={classes.chipContainer}>
+          {project.techs.map((tech) => {
+            return (
+              <Chip
+                key={tech}
+                size="small"
+                label={tech}
+                color="secondary"
+                variant="outlined"
+              />
+            );
+          })}
+        </div>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          {project.description}
         </Typography>
       </CardContent>
-      {/* <CardMedia component="video" src="videos/RedBull.mp4" autoPlay /> */}
-      <Video />
+      {project.video && <Video url={project.video} />}
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small" href={project.github}>
+          <GitHubIcon className={classes.githubIcon} /> <span>the code</span>
+        </Button>
       </CardActions>
     </Card>
   );

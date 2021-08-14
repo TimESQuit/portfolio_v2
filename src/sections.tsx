@@ -20,8 +20,8 @@ const about: ISection = {
 };
 
 const project: ISection = {
-  navBarName: "Project",
-  id: "project",
+  navBarName: "Work",
+  id: "work",
   component: <ProjectSection />,
 };
 

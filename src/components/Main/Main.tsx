@@ -1,19 +1,21 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 
 const Main = () => {
   return (
     <>
       <Typography variant="h4">My Story</Typography>
       <Typography>
-        Before I could write, I began learning the violin. Later, I picked up
-        the piano, trumpet, organ, and other instruments. Through many years of
-        work and the luck of opportunity, I played at Carnegie Hall, the Kennedy
-        Center, and other wonderful places. I loved music, but after college, my
-        passion for it was dimming; the difficulty of trying to make a career
-        out of music certainly wasn't helping.
+        <Box lineHeight={2}>
+          Before I could write, I began learning the violin. Later, I picked up
+          the piano, trumpet, organ, and other instruments. Through many years
+          of work and the luck of opportunity, I played at Carnegie Hall, the
+          Kennedy Center, and other wonderful places. I loved music, but after
+          college, my passion for it was dimming; the difficulty of trying to
+          make a career out of music certainly wasn't helping.
+        </Box>
       </Typography>
-      <Typography>
+      <Typography style={{ lineHeight: "3" }}>
         So, I decided to pursue another interest and go to law school to become
         a lawyer. Law school turned out to be quite challenging, but I made it
         through, and passed the bar. Standing in front of a judge for the first

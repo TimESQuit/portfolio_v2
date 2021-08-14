@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Video = () => {
+const Video = ({ url }: { url: string }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.wrapper}>
       <ReactPlayer
-        url="videos/RedBull.mp4"
+        url={url}
         controls={true}
         className={classes.player}
         width="100%"

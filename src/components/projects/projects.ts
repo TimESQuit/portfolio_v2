@@ -22,7 +22,7 @@ const baseball: IProject = {
   description:
     "A site for comparing advanced baseball statistics. It includes sortable stats, an interactive player search, career leaders and stat explanations.",
   github: "https://github.com/karovda/baseball_client",
-  video: "videos/BaseballShowcase.webm",
+  video: "videos/BaseballShowcase.mp4",
 
   // Change the line below
   live: "#goesnowhere",
@@ -40,7 +40,7 @@ const grammarBot: IProject = {
   description:
     "This Discord bot watches messages and checks them for incorrect usage of your/you're, as well as suggests grammar/spelling corrections upon request. It uses a hosted instance of the LanguageTool API for the grammar logic.",
   github: "https://github.com/karovda/discord-grammar-bot",
-  video: "videos/GrammarShowcase.webm",
+  video: "videos/GrammarShowcase.mp4",
 };
 
 const fangraphs: IProject = {

@@ -10,7 +10,7 @@ import {
   Grid,
 } from "@material-ui/core";
 
-import sections from "../../sections";
+import sections from "../sections/Sections";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

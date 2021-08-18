@@ -19,11 +19,13 @@ const baseball: IProject = {
     "PostgreSQL",
     "Docker Compose",
   ],
-  description: "Hello World",
+  description:
+    "A site for comparing advanced baseball statistics. It includes sortable stats, an interactive player search, career leaders and stat explanations.",
   github: "https://github.com/karovda/baseball_client",
-  video: "videos/RedBull.mp4",
+  video: "videos/BaseballShowcase.webm",
+
   // Change the line below
-  live: "#",
+  live: "#goesnowhere",
 };
 
 const grammarBot: IProject = {
@@ -35,16 +37,17 @@ const grammarBot: IProject = {
     "LanguageTool API",
     "Docker Compose",
   ],
-  description: "It keeps track of *your* grammar.",
+  description:
+    "This Discord bot watches messages and checks them for incorrect usage of your/you're, as well as suggests grammar/spelling corrections upon request. It uses a hosted instance of the LanguageTool API for the grammar logic.",
   github: "https://github.com/karovda/discord-grammar-bot",
-  video: "videos/RedBull.mp4",
+  video: "videos/GrammarShowcase.webm",
 };
 
 const fangraphs: IProject = {
   title: "Fangraphs Web Scraper",
   techs: ["Python", "Pandas", "Selenium", "PostgreSQL"],
   description:
-    "I took selected advanced stats from Fangraphs, compiled and cleaned the data, and put it into a database.",
+    "This is a data workflow that  scrapes every baseball player, compiles it, creates new derivative statistics, and inputs the results into PostgreSQL. It was used to build the database for the Baseball Data Analysis site.",
   github: "https://github.com/karovda/fangraphs-webscraper",
 };
 

@@ -16,11 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     title: {
-      display: "flex",
-      justifyContent: "center",
-      flexWrap: "wrap",
-      flexFlow: "row wrap",
-      alignContent: "space-around",
       paddingBottom: theme.spacing(3),
     },
   })
@@ -31,7 +26,7 @@ const ProjectSection = () => {
 
   return (
     <>
-      <Typography variant="h4" className={classes.title}>
+      <Typography variant="h4" align="center" className={classes.title}>
         Things I've Made
       </Typography>
       <Grid

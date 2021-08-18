@@ -3,7 +3,7 @@ import {
   makeStyles,
   createStyles,
   Theme,
-  Button,
+  IconButton,
   Card,
   CardActions,
   CardContent,
@@ -11,6 +11,7 @@ import {
   Chip,
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import LaunchIcon from "@material-ui/icons/Launch";
 
 import Video from "../Video";
 import { IProject } from "./projects";
@@ -18,16 +19,36 @@ import { IProject } from "./projects";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: 432,
+      width: 592,
       [theme.breakpoints.only("xs")]: {
         width: `calc(100vw - 64px)`,
         minWidth: 256,
-        maxWidth: 432,
+        maxWidth: 592,
       },
+      height: 600,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    },
+    rootNoVideo: {
+      width: 592,
+      [theme.breakpoints.only("xs")]: {
+        width: `calc(100vw - 64px)`,
+        minWidth: 256,
+        maxWidth: 592,
+      },
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    },
+    content: {
+      padding: theme.spacing(2),
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      flexGrow: 1,
     },
     title: {
-      display: "flex",
-      justifyContent: "center",
       paddingBottom: theme.spacing(1),
     },
     chipContainer: {
@@ -39,8 +60,11 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       marginBottom: theme.spacing(2),
     },
-    githubIcon: {
-      marginRight: theme.spacing(1),
+    description: {
+      paddingBottom: theme.spacing(2),
+    },
+    actionArea: {
+      padding: theme.spacing(0, 2, 2, 2),
     },
   })
 );
@@ -49,9 +73,17 @@ const ProjectComponent = ({ project }: { project: IProject }) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography variant="h5" component="h2" className={classes.title}>
+    <Card
+      className={project.video ? classes.root : classes.rootNoVideo}
+      variant="outlined"
+    >
+      <CardContent className={classes.content}>
+        <Typography
+          variant="h5"
+          component="h2"
+          align="center"
+          className={classes.title}
+        >
           {project.title}
         </Typography>
         <div className={classes.chipContainer}>
@@ -67,15 +99,25 @@ const ProjectComponent = ({ project }: { project: IProject }) => {
             );
           })}
         </div>
-        <Typography variant="body2" component="p">
+        <Typography
+          variant="body2"
+          component="p"
+          align="center"
+          className={classes.description}
+        >
           {project.description}
         </Typography>
+        {project.video && <Video url={project.video} />}
       </CardContent>
-      {project.video && <Video url={project.video} />}
-      <CardActions>
-        <Button size="small" href={project.github}>
-          <GitHubIcon className={classes.githubIcon} /> <span>the code</span>
-        </Button>
+      <CardActions className={classes.actionArea}>
+        {project.live && (
+          <IconButton size="small" href={project.live} target="_blank">
+            <LaunchIcon />
+          </IconButton>
+        )}
+        <IconButton size="small" href={project.github} target="_blank">
+          <GitHubIcon />
+        </IconButton>
       </CardActions>
     </Card>
   );

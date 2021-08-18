@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
         minWidth: 256,
         maxWidth: 592,
       },
-      height: 600,
+      height: 620,
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",

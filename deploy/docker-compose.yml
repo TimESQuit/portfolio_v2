@@ -2,11 +2,13 @@ version: "3"
 
 services:
   portfolio:
-    build:
-      context: ../
+    container_name: portfolio
+    image: karovda/portfolio:latest
     volumes:
       - portfolio_build:/portfolio/build
   db:
+    container_name: postgres
+    restart: unless-stopped
     image: postgres
     volumes:
       - ./dump_init.sql:/docker-entrypoint-initdb.d/dump_init.sql
@@ -15,21 +17,28 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   baseball_api:
-    image: karovda/baseball_api
+    container_name: api
+    restart: unless-stopped
+    image: karovda/baseball_api:latest
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; gunicorn core.wsgi --bind 0.0.0.0:8000'
     ports:
       - "8000:8000"
     depends_on:
       - db
   baseball_client:
-    image: karovda/baseball_client
+    container_name: baseball
+    image: karovda/baseball_client:latest
     volumes:
       - baseball_client_build:/baseball_client/build
   nginx:
+    container_name: nginx
+    restart: unless-stopped
     image: nginx:stable
-    # ports:
-    #   - 80:8080
+    ports:
+      - 80:80
+      - 443:443
     volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/:ro
       - ./nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro
       - baseball_client_build:/var/www/baseball_client
       - portfolio_build:/var/www/portfolio

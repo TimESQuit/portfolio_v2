@@ -23,9 +23,7 @@ const baseball: IProject = {
     "A site for comparing advanced baseball statistics. It includes sortable stats, an interactive player search, career leaders and stat explanations.",
   github: "https://github.com/karovda/baseball_client",
   video: "videos/BaseballShowcase.mp4",
-
-  // Change the line below
-  live: "#goesnowhere",
+  live: "http://baseball.timmartin.dev",
 };
 
 const grammarBot: IProject = {

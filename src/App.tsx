@@ -41,7 +41,6 @@ const App = () => {
                 </SectionWrapper>
               );
             })}
-            {/* <BottomNav /> */}
           </Container>
         </Paper>
       </CustomThemeProvider>

@@ -1,4 +1,9 @@
-*/node_modules*
-*/deploy
-*/dev
-./README.md
+**/node_modules*
+**/deploy*
+**/dev*
+README.md
+docker-compose*
+**/.env
+.gitignore
+**/*.git
+**/*.vscode

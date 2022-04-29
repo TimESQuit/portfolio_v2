@@ -26,7 +26,7 @@ const Socials = () => {
         >
           <LinkedInIcon />
         </IconButton>
-        <IconButton href="https://github.com/karovda" target="_blank">
+        <IconButton href="https://github.com/timesquit" target="_blank">
           <GitHubIcon />
         </IconButton>
       </div>

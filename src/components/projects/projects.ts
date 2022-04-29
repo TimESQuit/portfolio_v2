@@ -21,7 +21,7 @@ const baseball: IProject = {
   ],
   description:
     "A site for comparing advanced baseball statistics. It includes sortable stats, an interactive player search, career leaders and stat explanations.",
-  github: "https://github.com/karovda/baseball_client",
+  github: "https://github.com/timesquit/baseball_client",
   video: "videos/BaseballShowcase.mp4",
   live: "http://baseball.timmartin.dev",
 };
@@ -37,7 +37,7 @@ const grammarBot: IProject = {
   ],
   description:
     "This Discord bot watches messages and checks them for incorrect usage of your/you're, as well as suggests grammar/spelling corrections upon request. It uses a hosted instance of the LanguageTool API for the grammar logic.",
-  github: "https://github.com/karovda/discord-grammar-bot",
+  github: "https://github.com/timesquit/discord-grammar-bot",
   video: "videos/GrammarShowcase.mp4",
 };
 
@@ -46,7 +46,7 @@ const fangraphs: IProject = {
   techs: ["Python", "Pandas", "Selenium", "PostgreSQL"],
   description:
     "This is a data workflow that  scrapes every baseball player, compiles it, creates new derivative statistics, and inputs the results into PostgreSQL. It was used to build the database for the Baseball Data Analysis site.",
-  github: "https://github.com/karovda/fangraphs-webscraper",
+  github: "https://github.com/timesquit/fangraphs-webscraper",
 };
 
 const projects = [baseball, grammarBot, fangraphs];
